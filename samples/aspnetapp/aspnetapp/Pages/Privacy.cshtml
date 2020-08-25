@@ -6,3 +6,18 @@
 <h1>@ViewData["Title"]</h1>
 
 <p>Use this page to detail your site's privacy policy.</p>
+
+<div>
+    <h5 class="text-center">Metrics</h5>
+    <table width="500" align="center" class="table-striped table-hover">
+        <tr>
+            <td>Environment</td>
+            <td>@(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"))</td>
+        </tr>
+        <tr>
+            <td>MyKey1</td>
+            <td>@ViewData["MyKey1"]</td>
+        </tr>
+       
+    </table>
+</div>
