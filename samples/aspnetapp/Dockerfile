@@ -17,3 +17,7 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
 WORKDIR /app
 COPY --from=build /app ./
 ENTRYPOINT ["dotnet", "aspnetapp.dll"]
+
+#cd C:\Projects\githubRepos\dotnet-docker\samples\aspnetapp
+#docker build -t nishantnepal/aspnetapp:AksFileShare .
+#docker push nishantnepal/aspnetapp:AksFileShare

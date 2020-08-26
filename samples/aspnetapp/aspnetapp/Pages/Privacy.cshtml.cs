@@ -19,6 +19,13 @@ namespace aspnetapp.Pages
 
         public void OnGet()
         {
+            try{
+            var files = System.IO.Directory.GetFiles("/mnt/azurefileshare");
+            ViewData["files"] = string.Join(", ",files);
+            }
+            catch(Exception ex){
+                 ViewData["files"] = ex.ToString();
+            }
         }
     }
 }
