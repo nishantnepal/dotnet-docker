@@ -41,12 +41,16 @@ namespace aspnetapp
             }
 
             app.UseHttpsRedirection();
+            var version = Configuration["VersionPathBase"] ?? "v1";
+            app.UsePathBase($"/{version}");
+
             app.UseStaticFiles();
 
             app.UseRouting();
 
             app.UseAuthorization();
 
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
