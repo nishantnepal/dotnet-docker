@@ -17,6 +17,7 @@ namespace aspnetapp.Pages
         private readonly ILogger<IndexModel> _logger;
         private IConfiguration _configuration;
         public string PathBaseVersion { get; set; }
+        public string AppEnvironment { get; set; }
 
         public IndexModel(ILogger<IndexModel> logger,IConfiguration configuration)
         {
@@ -27,6 +28,10 @@ namespace aspnetapp.Pages
         public void OnGet()
         {
             PathBaseVersion = _configuration["VersionPathBase"];
+            AppEnvironment = _configuration["AppEnvironment"];
+            if(string.IsNullOrWhiteSpace(AppEnvironment)){
+                AppEnvironment = "n/a";
+            }
             //var httpRequestFeature = Request.HttpContext.Features.Get<IHttpRequestFeature>();
             //RawRequestUrl = httpRequestFeature.RawTarget;
         }
